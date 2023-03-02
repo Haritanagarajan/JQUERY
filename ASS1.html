@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>jquery</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css"></script>
+    <style>
+        #login {
+            background-color: rgba(196, 120, 133, 0.671);
+            border: 20px 20px 20px;
+        }
+
+        #registration {
+            background-color: palevioletred;
+        }
+    </style>
+</head>
+
+<body>
+    <script>
+        $(document).ready(function () {
+            $("#btn1").click(function () {
+                $("#login").toggle();
+            });
+        });
+        $(document).ready(function () {
+            $("#btn1").click(function () {
+                $("#registration").toggle();
+            });
+        });
+        $(document).ready(function () {
+            $("#btn1").click(function () {
+                var l = $("#login");
+                l.animate({ height: '100px', opacity: '1' }, 3000)
+                l.animate({ height: '200px', }, 3000)
+                l.animate({ height: '300px', opacity: '1' }, 2000)
+                l.animate({ height: '100px', }, 3000)
+                l.animate({ height: '200px', opacity: '1' }, 3000)
+                l.animate({ height: '300px' }, 3000)
+                l.animate({ height: '50px', opacity: '1' }, 2000)
+                l.animate({ height: '60px', width: '30px' }, 3000)
+                l.animate({ height: '200px', width: '40px' }, 2000)
+            });
+        });
+        $(document).ready(function () {
+            $("#m1").click(function () {
+                var mul1 = $("#mul1");
+                mul1.animate({ height: '100px', opacity: '1' }, 3000)
+                mul1.animate({ height: '200px', }, 3000)
+                mul1.animate({ height: '300px', opacity: '1' }, 2000)
+                mul1.animate({ height: '100px', }, 3000)
+                mul1.animate({ height: '200px', opacity: '1' }, 3000)
+                mul1.animate({ height: '300px' }, 3000)
+                mul1.animate({ height: '50px', opacity: '1' }, 2000)
+                mul1.animate({ height: '60px', width: '30px' }, 3000)
+                mul1.animate({ height: '200px', width: '40px' }, 2000)
+            });
+        });
+        $(document).ready(function () {
+            $("#m1").click(function () {
+                var mul2 = $("#mul2");
+                mul2.animate({ height: '100px', opacity: '1' }, 3000)
+                mul2.animate({ height: '200px', }, 3000)
+                mul2.animate({ height: '300px', opacity: '1' }, 2000)
+                mul2.animate({ height: '100px', }, 3000)
+                mul2.animate({ height: '200px', opacity: '1' }, 3000)
+                mul2.animate({ height: '300px' }, 3000)
+                mul2.animate({ height: '50px', opacity: '1' }, 2000)
+                mul2.animate({ height: '60px', width: '40px' }, 3000)
+                mul2.animate({ height: '200px', width: '30px' }, 2000)
+                mul2.animate({left :'+=150px'})
+            });
+        });
+        // $(document).ready(function () {
+        //     $("#btn1").click(function () {
+        //         $("#login").toggle();
+        //     });
+        // });
+        $(document).ready(function () {
+            $("#btn2").click(function () {
+                $("#css")
+                .toggle()
+                .css({background:'pink'})
+                .fadeOut(3000);
+
+            });
+        });
+        $(document).ready(function () {
+            $("#bb").click(function () {
+                var bb1 = $("#balloon");
+                  bb1.animate({'margin-top':'+=150px'})
+            });
+        });
+        $(document).ready(function () {
+            $("#bb").click(function () {
+                var bb2 = $("#pin");
+                  bb2.animate({'margin-bottom' :'+=150px'})
+            });
+        });
+
+
+    </script>
+    <form id="login">
+        <div class="container">
+            <label>Username : </label>
+            <input type="text" placeholder="Enter Username" name="username" required>
+            <br>
+            <br>
+            <label>Password : </label>
+            <input type="password" placeholder="Enter Password" name="password" required>
+            <br>
+            <br>
+            <button type="submit">Login</button>
+            <br>
+            <br>
+            <input type="checkbox" checked="checked"> Remember me
+            <br>
+            <br>
+            <button type="button" class="cancelbtn"> Cancel</button>
+        </div>
+    </form>
+    <br>
+    <button type="button" id="btn1">toggle</button>
+    <br>
+    <br>
+    <form id="registration">
+        <br>
+        <label>Username: <input type="text" id="username"></label>
+        <br>
+        <br>
+        <label>Password: <input type="password" id="pwd"></label>
+        <br>
+        <br>
+        <input type="submit" class="login" value="Log In">
+    </form>
+    <br>
+    <button type="button" id="m1">MULTIPLE ANIMATE</button>
+    <br>
+    <br>
+    <div id="mul1" style="background-color:pink;width:60px;height:60px;"></div>
+    <br>
+    <br>
+    <div id="mul2" style="background-color:rgb(172, 55, 74);width:50px;height:50px;border-radius: 30px;position: relative;"></div>
+    <br>
+    <br>
+    <button id="btn2" type="button">ANIMATE WITH CSS</button>
+    <br>
+    <br>
+    <div id="css" style="width:400px;height:200px;background-image:url(asserts/VIOLETFLOWER.jfif);"></div>
+    <br>
+    <br>
+    <button id ="bb" type="button">ballon pin</button>
+    <br>
+    <br>
+    <img  id="ballon" style="width:70px;height:70px;position:relative;" src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTaW1ERbuvT3EL1CN_2aOMVb8GrLHsc-G1l6g&usqp=CAU">
+    <br>
+    <br>
+    <img id="pin" style="width:70px;height:70px;position: relative;" src="data:image/png;base64,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">
+
+</body>
+
+</html>
