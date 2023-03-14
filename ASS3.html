@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="https://cdn.jsdelivr.net/jquery/1.12.4/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-validate/1.19.1/jquery.validate.min.js"></script>
+    <style>
+        body {
+            background-color: rgb(120, 207, 241);
+        }
+
+        .row {
+            padding-top: 20px;
+            padding-bottom: 20px;
+
+        }
+    </style>
+
+    </body>
+</head>
+
+<body>
+    <div class="container">
+        <form class="form" id="MyForm" method="get" action="https://www.cgvakindia.com/" name="MyForm">
+            <fieldset
+                style="text-align: center;width:300px;height:300px;left:550px;position: absolute;top:150px;background-color:rgb(250, 136, 153) ;">
+                <h3>REGISTRATION FORM</h3>
+                <div class="row">
+                    <label for="uName">USERNAME</label>
+                    <input id="uName" name="uName" type="text" minlength="2" maxlength="20">
+                </div>
+                <div class="row">
+                    <label for="pword">PASSWORD</label>
+                    <input id="pword" name="pword" type="password" minlength="8" maxlength="16">
+                </div>
+                <div class="row">
+                    <label for="Email">E-MAIL</label>
+                    <input id="Email" type="email" name="Email">
+                </div>
+                <div class="row">
+                    <label for="mobile">MOBILE</label>
+                    <input type="tel" name="mobile" id="mobile" pattern="[0-9]{3}-[0-9]{3}-[0-9]{4}">
+                </div>
+                <div class="row">
+                    <button style="width:170px;height:30px ;background-color: rgb(182, 89, 120);color: aliceblue;"
+                   type="button" name="submit" id="submit">SUBMIT</button>
+                </div>
+            </fieldset>
+        </form>
+    </div>
+    <script>
+        function checkPassword(pword){
+    var pattern = /^.*(?=.{8,})(?=.*\d)(?=.*[a-z])(?=.*[A-Z])(?=.*[@#$%&]).*$/;
+    if(pattern.test(pword)){
+        return true;
+    }else{
+        return false;
+    }
+}
+    </script>
+    <script>
+        $(document).ready(function () {
+            $("#MyForm").validate({
+                rules: {
+                    'uname': {
+                        required: true,
+                        minlength: 2,
+                        maxlength: 20
+                    },
+                    'pword': {
+                        required: true,
+                        minlength: 8,
+                        maxlength: 16
+                        
+                    },
+                    'Email': {
+                        required: true,
+                        email: true,
+                    },
+                    'mobile': {
+                        required: true,
+                    },
+                },
+                messages: {
+                    'uName': "Please enter a valid username .",
+                    'pword': "Please enter a valid password.",
+                    'Email': "Please enter Email in proper format.",
+                    'mobile': "Please enter a mobile number",
+                }
+            });
+        });
+    </script>
+</body>
+
+</html>
