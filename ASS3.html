@@ -100,14 +100,14 @@
                         pattern:"please enter the correct pattern."
                     }
                 },
-                errorPlacement: function (error, element) {  //callback function with two parameter error jquery object and elemet
-                    if (element.attr("name") == "pword") { //if the attribute of the input is eqal to password 
-                        error.insertAfter($("#password_check"));//error msg will be printed after the div
+                errorPlacement: function (error, element) {  
+                    if (element.attr("name") == "pword") { 
+                        error.insertAfter($("#password_check"));
                     } else {
-                        error.insertAfter(element); // else it will be printed after the input fiels i.e., element
+                        error.insertAfter(element); 
                     }
                 },
-                submitHandler: function (Myform) {// Prevent the form from submitting if there are validation errors
+                submitHandler: function (Myform) {
                     form.submit();
                 }
             });
