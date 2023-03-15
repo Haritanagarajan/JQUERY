@@ -8,6 +8,7 @@
     <title>Document</title>
     <script src="https://cdn.jsdelivr.net/jquery/1.12.4/jquery.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-validate/1.19.1/jquery.validate.min.js"></script>
+     <script src="https://cdn.jsdelivr.net/jquery.validation/1.16.0/additional-methods.min.js"></script>
     <style>
         body {
             background-color: rgb(120, 207, 241);
@@ -36,7 +37,6 @@
                 <div class="row">
                     <label for="pword">PASSWORD</label>
                     <input id="pword"  name="pword" type="password" minlength="8" maxlength="16">
-                    <div id="password_check"> </div>
                 </div>
                 <div class="row">
                     <label for="Email">E-MAIL</label>
@@ -58,13 +58,13 @@
         $(document).ready(function () {
             $("#MyForm").validate({
                 rules: {
-                    'uName': {
+                    uName: {
                         required: true,
                         minlength: 2,
                         maxlength: 20,
                         pattern: /^[a-zA-Z]+$/
                     },
-                    'pword': {
+                    pword: {
                         required: true,
                         minlength: 8,
                         maxlength: 16,
@@ -72,43 +72,36 @@
 
 
                     },
-                    'Email': {
+                    Email: {
                         required: true,
                         email: true
                     },
-                    'mobile': {
+                    mobile: {
                         required: true,
                         pattern: /^[0-9]{3}-[0-9]{3}-[0-9]{4}$/
                     }
                 },
                 messages: {
-                    'uName': {
+                    uName: {
                         required: "Please enter a valid username .",
-                        maxlength:"please enter the maxlenght",
+                        maxlength:"please enter the maxlenght og 20 characters",
+                        minlength:"please enter atleast two characters",
                         pattern:"please enter the correct pattern."
                     },
-                    'pword': {
+                    pword: {
                         required: "Please enter a valid password.",
+                        maxlength:"please enter the maxlenght og 16 characters",
+                        minlength:"please enter atleast 8 characters",
                         pattern:"please enter the correct pattern."
                     },
-                    'Email': {
+                    Email: {
                         required: "Please enter Email in proper format.",
                         pattern:"please enter the correct pattern."
                     },
-                    'mobile': {
+                    mobile: {
                         required: "Please enter a mobile number in correct format",
                         pattern:"please enter the correct pattern."
                     }
-                },
-                errorPlacement: function (error, element) {  
-                    if (element.attr("name") == "pword") { 
-                        error.insertAfter($("#password_check"));
-                    } else {
-                        error.insertAfter(element); 
-                    }
-                },
-                submitHandler: function (Myform) {
-                    form.submit();
                 }
             });
         });
