@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>jquery test</title>
+    <script src="https://cdn.jsdelivr.net/jquery/1.12.4/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-validate/1.19.1/jquery.validate.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/jquery.validation/1.16.0/additional-methods.min.js"></script>
+    <script>
+        $(document).ready(function () {
+            $("#testform").validate({
+                rules: {
+                    tname: {
+                        required: true,
+                        minlength: 5,
+                        maxlength: 20
+                    },
+                    temail: {
+                        required: true,
+                        pattern: /^[@]+[cgvak]{5}\.[com]{3}$/
+                    },
+                    tpword: {
+                        required: true,
+                        //one numeric digit and special character
+                        pattern: /^(?=.*[a-z])(?=.*\d)(?=.*[#$%^&*])[a-z\d#$%^&*]{7,15}$/
+                    },
+                    tphone: {
+                        required: true,
+                        pattern: /^[0-9]{3}-[0-9]{4}-[0-9]{4}$/
+                    }
+
+                },
+                messages: {
+                    tname: {
+                        required: "THIS FIELD IS MANDATORY",
+                        minlength: "PLEASE ENTER MINIMUM OF 5 LETTERS",
+                        maxlength: "PLEASE ENTER MAXIMUM OF 20 LETTERS"
+                    },
+                    temail: {
+                        required: "THIS FIELD IS MANDATORY",
+                        pattern: "PLEASE ENTER THE EMAIL IN CORRECT FORMAT"
+                    },
+                    tpword: {
+                        required: "THIS FIELD IS MANDATORY",
+                        pattern: "PLEASE ENTER THE CORRECT PASSWORD FORMAT",
+                    },
+                    tphone: {
+                        required: "THIS FIELD IS MANDATORY",
+                        pattern: "PLEASE ENTER THE CORRECT PHONE NUMBER FORMAT"
+                    }
+                }
+            })
+        })
+    </script>
+    <style>
+        .ff{
+            text-align: center;
+        }
+        .row1{
+            padding:10px 20px 30px;
+        }
+        .row2{
+            padding:10px 20px 30px;
+        }
+        .row3{
+            padding:10px 20px 30px;
+        }
+        .row4{
+            padding:10px 20px 30px;
+        }
+        .row5{
+            padding:10px 20px 30px;
+        }
+
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <form class="form" id="testform" name="testform" method="post" action="https://www.regexpal.com/">
+            <fieldset class="ff">
+                <h3>REGISTRATION FORM</h3>
+                <div class="row1">
+                    <label for="tname">NAME</label>
+                    <input type="text" name="tname" id="tname" minlength="5" maxlength="20">
+                </div>
+                <div class="row2">
+                    <label for="temail">EMAIL ID</label>
+                    <input type="text" name="temail" id="temail">
+                </div>
+                <div class="row3">
+                    <label for="tpword">PASSWORD</label>
+                    <input type="password" name="tpword" id="tpword">
+                </div>
+                <div class="row4">
+                    <label for="tphone">PHONE NUMBER</label>
+                    <input type="tel" name="tphone" id="tphone">
+                </div>
+                <div class="row5">
+                    <input type="submit" name="tsubmit" id="tsubmit">
+                </div>
+            </fieldset>
+        </form>
+    </div>
+
+</body>
+
+</html>
